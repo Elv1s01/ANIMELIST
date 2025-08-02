@@ -3,12 +3,13 @@ package model.enteties;
 import service.ReaderService;
 
 public class Anime {
-    private long cod = 0;
+    private static long nextCod = 0;
+    private long cod;
     private String name, description;
     private boolean watch = false;
 
     public Anime(String name, String description) {
-        this.cod++;
+        this.cod = nextCod++;
         this.name = name;
         this.description = description;
     }
@@ -81,7 +82,7 @@ public class Anime {
     }
 
     public String toString(){
-        return String.format("\nCOD : %d.\nNAME : %s.\nASSISTIDO : %b.\nDESCRIPTION : %s.", getName(), getClass(), getDescription());
+        return String.format("\nCOD : %d.\nNAME : %s.\nASSISTIDO : %b.\nDESCRIPTION : %s.",getCod(), getName(), getWatch(), getDescription());
     }
 
     public void  markAsWatched(){

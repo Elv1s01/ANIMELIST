@@ -7,11 +7,12 @@ public class OptionView {
     private static AnimeService animeService = new AnimeService();
     public static void getOption(){
         while (true) {
+            MenuView.showMenu();
             System.out.print("------------>");
             int choice;
             do {
-                ReaderService.netxLine();
                 choice = ReaderService.nextInt();
+                ReaderService.netxLine();
             } while (choice < 1 || choice > 5);
             switch (choice) {
                 case 1:
